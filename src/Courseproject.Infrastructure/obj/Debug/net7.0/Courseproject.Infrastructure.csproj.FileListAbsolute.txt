@@ -1,0 +1,15 @@
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\bin\Debug\net7.0\Courseproject.Infrastructure.deps.json
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\bin\Debug\net7.0\Courseproject.Infrastructure.dll
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\bin\Debug\net7.0\Courseproject.Infrastructure.pdb
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\bin\Debug\net7.0\Courseproject.Common.dll
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\bin\Debug\net7.0\Courseproject.Common.pdb
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.AssemblyInfo.cs
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.csproj.CopyComplete
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.dll
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\refint\Courseproject.Infrastructure.dll
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\Courseproject.Infrastructure.pdb
+C:\Users\DELL\source\repos\CourseProject\src\Courseproject.Infrastructure\obj\Debug\net7.0\ref\Courseproject.Infrastructure.dll
