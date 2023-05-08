@@ -1,43 +1,78 @@
-﻿using Courseproject.Common.Interfaces;
+﻿using System.Linq.Expressions;
+using Courseproject.Common.Interfaces;
 using Courseproject.Common.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Courseproject.Infrastructure
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
+        private ApplicationDbContext ApplicationDbContext { get; }
+        private DbSet<T> DbSet { get; }
+        public GenericRepository(ApplicationDbContext applicationDbContext)
+        {
+            ApplicationDbContext = applicationDbContext;
+            DbSet = applicationDbContext.Set<T>();
+        }
+
+
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            if(ApplicationDbContext.Entry(entity).State == EntityState.Detached)
+                DbSet.Attach(entity);
+            DbSet.Remove(entity);
         }
 
-        public Task<List<T>> GetAsync(int? skip, int? take, params System.Linq.Expressions.Expression<Func<T, object>>[] includes)
+        public async Task<List<T>> GetAsync(int? skip, int? take, params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = DbSet;
+            foreach(var include in includes)
+                query = query.Include(include);
+            if (skip != null)
+                query = query.Skip(skip.Value);
+            if(take != null)
+                query = query.Take(take.Value);
+            return await query.ToListAsync();
         }
 
-        public Task<T?> GetByIdAsync(params System.Linq.Expressions.Expression<Func<T, object>>[] includes)
+        public async Task<T?> GetByIdAsync(int id, params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = DbSet;
+            query = query.Where(entity => entity.Id == id);
+            foreach(var include in includes)
+                query = query.Include(include);
+            return await query.SingleOrDefaultAsync();
         }
 
-        public Task<List<T>> GetFilteredAsync(System.Linq.Expressions.Expression<Func<T, bool>>[] filters, int? skip, int? take, params System.Linq.Expressions.Expression<Func<T, object>>[] includes)
+        public async Task<List<T>> GetFilteredAsync(Expression<Func<T, bool>>[] filters, int? skip, int? take, params Expression<Func<T, object>>[] includes)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = DbSet;
+            foreach (var filter in filters)
+                query = query.Where(filter);
+            foreach( var include in includes)
+                query = query.Include(include);
+            if(skip != null)
+                query = query.Skip(skip.Value);
+            if(take != null)
+                query = query.Take(take.Value);
+            return await query.ToListAsync();
         }
 
-        public Task<int> InsertAsync(T entity)
+        public async Task<int> InsertAsync(T entity)
         {
-            throw new NotImplementedException();
+            await DbSet.AddAsync(entity);
+            return entity.Id;
         }
 
-        public Task SaveChangesAsync()
+        public async Task SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            await ApplicationDbContext.SaveChangesAsync();
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            DbSet.Attach(entity);
+            ApplicationDbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }
