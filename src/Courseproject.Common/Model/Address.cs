@@ -13,6 +13,6 @@ namespace Courseproject.Common.Model
         public string Zip { get; set; } = default!;
         public string Email { get; set; } = default!;
         public string? PhoneNumber { get; set; } = default!;
-        public List<Employee> mployees { get; set; } = default!;
+        public List<Employee> Employees { get; set; } = default!;
     }
 }
