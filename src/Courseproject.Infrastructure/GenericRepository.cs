@@ -14,7 +14,7 @@ namespace Courseproject.Infrastructure
             ApplicationDbContext = applicationDbContext;
             DbSet = applicationDbContext.Set<T>();
         }
-
+        
 
         public void Delete(T entity)
         {
